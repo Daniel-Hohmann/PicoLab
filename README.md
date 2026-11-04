@@ -81,6 +81,7 @@ Type `help` to see a list of commands (e.g., `gpio`, `adc`, `power`, `i2c`, `spi
 ## Building from Source
 
 ### Prerequisites
+* [nix](https://nix.dev/install-nix.html)
 * [Raspberry Pi Pico SDK](https://github.com/raspberrypi/pico-sdk)
 * CMake & Ninja/Make
 * GCC ARM Embedded Toolchain
@@ -88,18 +89,10 @@ All are included in the flake.nix file
 
 ### Build Instructions nix flake
 ```bash
-nix develop
 git clone https://github.com/CoretechR/picolab.git
 cd picolab
-# Downloading the Pico-SDK
-git clone https://github.com/raspberrypi/pico-sdk.git
-cd pico-sdk
-git submodule update --init
-# setting up the .cmake file 
-cd ..
-cd firmware
-rm -rf cp pico-sdk/external/pico_sdk_import.cmake .
-cp pico-sdk/external/pico_sdk_import.cmake .
+# starting nix-flake
+nix develop
 # Build the Project
 mkdir build && cd build
 cmake ..

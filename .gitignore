@@ -1,3 +1,5 @@
+
+/firmware/pico_sdk_import.cmake
 # Prerequisites
 *.d
 
